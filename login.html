@@ -9,13 +9,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="kwitter.js"></script>
+    <script src="login.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script> 
     <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
     </head>
     <body id="body1">
         <center>
+            <h1 class="header">	
+                School Chat	
+                <sup>
+                    <img style="width: 150px;" src="24311-online-school-home-page-animated-illustration.gif">
+                </sup>
+            </h1>
             <h1 style="color: white;">Login</h1>
             <img id="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO_u9nxPtyrmUrtDCeiLvo_r3A_cktChwjDQ&usqp=CAU">
             <div style="background-color: rgb(25, 121, 1); border-bottom-left-radius:10px ; border-top-left-radius:10px ;border-top-right-radius: 10px; border-bottom-right-radius: 10px; height: 430px; width: 300px;"></div>
@@ -29,11 +35,14 @@
              <input type="text" class="form-control" placeholder="Password" id="password">
              <br>
              <br>
-             <button id="btn_log" class="form-control">Login</button>
+             <button id="btn_log" class="form-control" onclick="login()">Login</button>
          </div>
          <br>
          <br>
-         <h5 style="color: white;">Not a member?<label onclick="login()" style="color: orange;"> Register here</label></h5>
+         <h3 id="error"></h3>
+         <br>
+         <br>
+         <h5 style="color: white;">Not a member?<label onclick="register()" style="color: orange; cursor: pointer;"> Register here</label></h5>
         </center> 
     </body>
 </html>
