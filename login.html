@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>School Chat</title>
+    <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="kwitter.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+    </head>
+    <body id="body1">
+        <center>
+            <h1 style="color: white;">Login</h1>
+            <img id="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO_u9nxPtyrmUrtDCeiLvo_r3A_cktChwjDQ&usqp=CAU">
+            <div style="background-color: rgb(25, 121, 1); border-bottom-left-radius:10px ; border-top-left-radius:10px ;border-top-right-radius: 10px; border-bottom-right-radius: 10px; height: 430px; width: 300px;"></div>
+            <div style="background-color: rgb(84, 201, 6); border-bottom-left-radius:10px ;  border-top-left-radius:10px ;border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-right-radius: 10px; height: 420px; width: 300px; margin-top: -430px;"></div>
+            <div style="background-color: rgb(43, 207, 2); border-bottom-left-radius:10px ;  border-top-left-radius:10px ;border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-right-radius: 10px; height: 410px; width: 300px; margin-top: -420px;"></div>
+            <div class="container" id="div_log">
+             <br>
+             <input type="text" class="form-control" placeholder="Username" id="user">
+             <br>
+             <br>
+             <input type="text" class="form-control" placeholder="Password" id="password">
+             <br>
+             <br>
+             <button id="btn_log" class="form-control">Login</button>
+         </div>
+         <br>
+         <br>
+         <h5 style="color: white;">Not a member?<label onclick="login()" style="color: orange;"> Register here</label></h5>
+        </center> 
+    </body>
+</html>
