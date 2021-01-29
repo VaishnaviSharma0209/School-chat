@@ -13,28 +13,29 @@ var firebaseConfig = {
     function Addroom(){
           room_name=document.getElementById("room_name").value;
           firebase.database().ref("/").child(room_name).update({
-                purpose: "Add room name"
+                admin: user_name
           });
-          localStorage.setItem("Room Name",room_name);
-          //window.location="Room.html";
+          localStorage.setItem("admin",user_name);
+          localStorage.setItem("Room_Name",room_name);
+          window.location="Room.html";
     }
 
     function getData() {firebase.database().ref("/").on('value', function(snapshot) {document.getElementById("output").innerHTML = "";snapshot.forEach(function(childSnapshot) {childKey  = childSnapshot.key;
         Room_names = childKey;
       //Start code
       console.log("Room-"+Room_names);
-      row="<div class='room_name' id="+Room_names+" onclick='redirct(this.id)'>#"+Room_names+" </div><hr>";
+      row="<div class='room_name' id="+Room_names+" onclick='redirct(this.id)'>"+Room_names+" </div><hr>";
       document.getElementById("output").innerHTML+=row;
       //End code
       });});}
 getData();
 function redirct(name){
       console.log(name);
-      localStorage.setItem("Room Name",name);
-     // window.location="Room.html";
+      localStorage.setItem("Room_Name",name);
+      window.location="Room.html";
 }
 function logout(){
       localStorage.removeItem("user_name");
-      localStorage.removeItem("room_name");
+      localStorage.removeItem("Room_Name");
       window.location="login.html";
 }

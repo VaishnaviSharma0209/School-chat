@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title id="title">School Chat</title>
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body id="body3">
+
+<div class="container">
+	<div style="text-align: left;">
+	<button class="glyphicon glyphicon-share btn btn-warning" id="back" onclick="back()">Back</button> 
+</div>
+	<button id="logout" class="glyphicon glyphicon-log-out btn btn-danger" onclick="logout()">Logout</button>
+	<center>
+		<h1 class="header">	
+			 School Chat
+			<sup>
+				<img src="24311-online-school-home-page-animated-illustration.gif">
+			</sup>
+        </h1>
+        <h3 class="color_white" id="welcome"></h3>
+        <h4 class="color_white" id="admin"></h4>
+    <span>
+        <label style="color: white;">Student</label>
+        <label class="switch">
+            <input id="box" type="checkbox">
+            <span  class="slider round"></span>
+        </label>
+      <label style="color: white;">Teacher</label>
+    </span>
+		<div style="text-align: left;margin-bottom: 70px; " id="output"> </div>
+	</center>
+</div>
+
+<center>
+	<div class="input_div_message_page">
+		<label>Send:</label>
+		<input type="text" id="message" placeholder="Enter Message" class="form-control">
+        <br>
+        <span>
+            <button class="btn btn-success" onclick="send()">Send</button>
+            <button class="btn btn-info" onclick="invite()">Invite Friends</button>
+        </span>     
+	</div>
+</center>
+<button onclick="topFunction()" class="glyphicon glyphicon-circle-arrow-up" id="myBtn" title="Go to top">Top</button>
+
+<script src="Room.js"></script>
+</body>
+</html>
