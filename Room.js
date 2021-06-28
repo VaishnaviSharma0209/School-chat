@@ -12,20 +12,24 @@ var firebaseConfig = {
     room_name=localStorage.getItem("Room_Name");
     document.getElementById("welcome").innerHTML="Welcome to " + room_name + "!";
     document.getElementById("title").innerHTML="Chat with "+ room_name + ".";
+    function getData() { firebase.database().ref("/"+room_name).on('value', function(snapshot) { document.getElementById("output").innerHTML = ""; snapshot.forEach(function(childSnapshot) { childKey  = childSnapshot.key; childData = childSnapshot.val(); if(childKey == "admin") {
+      admin=childData;
+      console.log(admin);
+    } });  }); }
     function send(){
         var isChecked=document.getElementById("box").checked;
         console.log(isChecked);
         if (isChecked==false){
             msg=document.getElementById("message").value;
             firebase.database().ref(room_name).push({
-              user_name:user_name,
+              user_name:user_name+"(Student)",
               Message:msg,
               likes:0,
               unlikes:0
         })
         document.getElementById("message").value="";
         }
-        if (isChecked=true){
+        if (isChecked==true){
             msg=document.getElementById("message").value;
             firebase.database().ref(room_name).push({
               user_name:user_name+"(Teacher)",
@@ -45,7 +49,7 @@ var firebaseConfig = {
 
 
 
-function getData() { firebase.database().ref("/"+room_name).on('value', function(snapshot) { document.getElementById("output").innerHTML = ""; snapshot.forEach(function(childSnapshot) { childKey  = childSnapshot.key; childData = childSnapshot.val(); if(childKey != "purpose") {
+function getData() { firebase.database().ref("/"+room_name).on('value', function(snapshot) { document.getElementById("output").innerHTML = ""; snapshot.forEach(function(childSnapshot) { childKey  = childSnapshot.key; childData = childSnapshot.val(); if(childKey != "admin") {
     firebase_message_id = childKey;
     message_data = childData;
     console.log(firebase_message_id);
@@ -60,7 +64,7 @@ function getData() { firebase.database().ref("/"+room_name).on('value', function
     if (user.includes("(Teacher)")){
         name_tag="<h4>"+user+"<img src='https://img.icons8.com/emoji/2x/woman-teacher.png' class='user_tick'></h4>";
     }
-    else if(user_name==user){
+    if(user.includes("(Student)")){
         name_tag="<h4>"+user+"<img src='https://img.icons8.com/emoji/2x/woman-student.png' class='user_tick'></h4>";
     }
     message_1="<h4 class=message_h4>"+message+"</h4>";
